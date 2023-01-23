@@ -1,0 +1,76 @@
+---
+title: "Exploratory Analysis: Gentrification in King County"
+author: "Abdelrahman, Irti, Jiahang, Timothy"
+date: "11/22/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+source("summary_information_script.R")
+source("chart1.R")
+source("chart2.R")
+source("income_map.R")
+source("table.R")
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Introduction
+***
+Our project is going to look at Gentrification in the King County, WA and the affects it has on minorities and how it is link to growth of Big Tech in Area. We are interested in Gentrification because we have seen how rising house prices and rent have displaced low-income residents and people of colour around the city and we believe that gentrification is a major issue in the region. It's a topic in which people know about but don't really know the ramification of it. This report will hopefully shed a light on and quantity gentrification in the region and help people see the unfortunate reality that happens quite frequently on a day-to-day basis. 
+
+### Dataset
+For this report we will be using Data from the American Community Survey (ACS) conducted by the US Census Bureau and we will mostly be focusing on their 5-year estimates from 2017 – 2019 as they are recent enough that they will provide a more accurate picture of the problems we are facing today. The ACS is an annual demographics survey program conducted by the U.S. Census Bureau unlike the Census which is conducted every 10 years. The ACS surveys a sample of 290,000 households every month on a wide range of demographic, social, economic and housing characteristics. Since it’s on a sample of the population the findings are an estimate. For our analysis we have decided to omit the data for 2020 because of the pandemic and the anomalies associated with the 2020 ACS survey.
+
+# Summary
+***
+An initial analysis of the data revealed that from 2010 to 2017 the number of Black households in King County changed by `r change_black_households` while the number of White household changed by `r change_white_households`. In terms of proportions it was `r change_black_proportion` for Black households and `r change_white_proportion` for White households. From 2010 to 2017 the Median Income in King county changed by $`r change_median_income`.
+
+# Table: Income and Demographic Characteristics of Area within King County
+### Table Showing an Area's Median Income and its Average Racial Composition
+***
+```{r warning=FALSE, echo=FALSE, message=FALSE}
+summary_table
+```
+
+The Table above displays the racial makeup of an area based on its median income. It grouped all of the individual Census Tracts for King county and grouped they by Median Income. Since Income is a continuous variable, it has been broken up into various income brackets. The Table also shows the Number of Census tracts in each Income Bracket.   
+
+### Purpose
+The reason this table was included was to help show the overall distribution of Income across King county by showing how many Census Tracts fall under each Income Bracket. It also shows the average Racial of makeup of areas within Income Brackets. 
+
+### Findings
+We noticed from the table that areas with higher Median Incomes tend to be less diverse and more White. As we go up in Median Income the percentage of white households also tends to go up. This pattern can mostly be seen for Asians as well but is slightly weaker. The reverse can be seen for the percentage of Black household which drop drastically as an areas Median Income goes up. From the Table we can all so the most area's in King county have a Median Income between 45,000 and 144,000 dollars. According to the chart the largest Median Income Bracket the 95,000 - 104,000 Bracket which contains 51 Census Tracts and 115,561 households.
+
+# Scatter Plot Showing the Income Distribution of Households and how they Differ for White and Black Households
+***
+```{r warning=FALSE, echo=FALSE, message=FALSE}
+chart1
+```
+
+### Purpose
+This graph was included to show the income distribution of household in King County and how they differ by Race. 
+
+### Findings
+From the graph we can see that in general White Household tend be richer than Black households. Data also shows that white households make a greater portion of the population in king county. In terms of the overall trend as income goes up the portion of white households increases while for black households as income goes up the portion black households decrease. 
+
+# Bar Chart Showing the change in Racial Composition over Time In King County
+***
+```{r warning=FALSE, echo=FALSE, message=FALSE, out.width="100%"}
+king_county_demographic
+```
+
+### Purpose
+The purpose of the graph is the show how the racial make up has changed between 2017 - 2019. 
+
+
+### Findings
+From the graph we can see that overall all the racial composition of King county has stayed the same between 2017 - 2019. This is expected as it only covers three years. However what is more interesting is the fact that during these years the Asian population as a percent of the total population has been expanding significantly while as a percentage the white population has been decreasing.
+
+# Map Visualizing the Median Income Distribution of King County
+```{r warning=FALSE, echo=FALSE, message=FALSE, out.width="100%"}
+income_map
+```
+### Purpose
+This Map was included shows the distribution of Median Income across King County and to help visualize where poorer communities are located and where richer communities are located and see if there exits any pattern in the distribution
+
+### Findings
+The map shown above shows the distribution estimated median income for King County. From the Map we can clearly see key patterns emerging. The most distinctive pattern is that most Bellevue residents seem to have an Estimated Median Income of 100,000 characterized by the purple color. It has hints of people in the 200,000 range but it's mostly people with a median income of 100,000. Seattle seems to be the most diverse city as it has people in all types of income brackets. There doesn't seem to be a majority median income as seen as Bellevue, most people in Seattle  have an estimated median income of around 50,000 to 100,000 to even 250,000 as you go north. Areas in south Seattle and near Tacoma tend to have the lowest median income and the median income tends to go down on average as you move south. The highest income communities are mostly located around the shores of lake Washington and Mercer Island.

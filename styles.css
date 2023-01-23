@@ -1,0 +1,10 @@
+.header {
+  background-color: rgb(0, 99, 117);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://www.mapshop.com/wp-content/uploads/2017/10/ht_sea_1.jpg);
+  background-repeat: no-repeat;
+  padding: 100px;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
